@@ -1,3 +1,4 @@
+# initial text part
 welcome = """
 Welcome to Tic Tac Toe
 ========================================
@@ -13,6 +14,7 @@ marks in a:
 Let's start the game
 If you want to exit press E"""
 
+# rewrites gameboard according to used marks already recorded in gamemarks dictonary
 def gameboard(gamemarks):
     gameboard = """
 -------------------------
