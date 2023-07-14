@@ -1,3 +1,5 @@
+from time import time
+
 # rewrites gamemarks to matrix and then decides if there are any "3 in row".
 # if there are "3 in row" returns True value and mark of winner
 def gamestatus(gamemarks):
@@ -29,6 +31,14 @@ def gamestatus(gamemarks):
 
     return(True,"")
 
+# gives the total running time of the program
+def timeplay(start_time, end_time):
+    time = end_time - start_time
+    minutes = time // 60
+    seconds = time - 60*minutes
+    if minutes == 0:print(f"Running time was: {round(seconds)} s.".center(40))
+    else:print(f"Running time was: {round(minutes)}:{round(seconds)}".center(40))
+                            
 
 
         
