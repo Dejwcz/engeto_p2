@@ -14,6 +14,10 @@ gamestatusxo = True
 on_move = ["O", "X"]
 on_move_index = 0
 winner = ""
+letter = False
+oor = False
+used_key = False
+
 
 
 
@@ -21,27 +25,37 @@ while gamestatusxo and on_move_index < 9:
     system("cls")
     print(source.welcome)
     source.gameboard(game_marks)
+
+    if letter: print("Wrong enter. Try again! ")
+    letter = False
+    if oor: print("Out of range. Try again!")
+    oor = False
+    if used_key: print("There is mark already. Try again!")
+    used_key = False
+
+    mark_choise = input(f"{on_move[on_move_index % 2]} give me your move number: ")
+
+    if mark_choise == "E":
+        print("Thans for play. Goodbye")
+        quit(10)
+    try:
+        mark_choise = int(mark_choise)
+    except ValueError:
+        letter = True
+        continue
     
-    mark_choise = 0
-    while mark_choise not in range(1,10) and mark_choise not in game_marks.keys():
-        print(mark_choise)
-        print(mark_choise not in game_marks.keys())
-        print(game_marks.keys())
-        try:
-            mark_choise = input(f"Player {on_move[on_move_index % 2]} | Enter your move number: ")
-            if mark_choise == "E": 
-                print("Thanks for play. Goodbye")
-                quit(10)
-            mark_choise = int(mark_choise)
-        except ValueError:
-            pass
-        print("Wrong enter. Try again. ")
+    if mark_choise not in range(1,10):
+        oor = True
+        continue
+    
+    if mark_choise in game_marks.keys():
+        used_key = True
+        continue
 
     game_marks[mark_choise] = on_move[on_move_index % 2]
     on_move_index += 1
-    #source.gameboard(game_marks)
     gamestatusxo, winner = logic.gamestatus(game_marks)
-    #print(gamestatusxo)
+    
 system("cls")
 print(source.welcome)
 source.gameboard(game_marks)
