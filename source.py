@@ -1,6 +1,18 @@
 # initial text part
-welcome = """
-Welcome to Tic Tac Toe
+welcome = """Welcome to Game machine!!!
+========================================
+I have 2 really good games for your fun.
+You can choose wich one you want to play.
+Press T for Tic Tac Toe or
+press B for Bulls & Cows.
+========================================
+Let's choose the game
+If you want to exit press E"""
+
+possible_chooses = ["E", "T", "B"]
+
+# initial text part for Tic Tac Toe
+welcomexo = """Welcome to Tic Tac Toe
 ========================================
 GAME RULES:
 Each player can place one mark (or stone)
@@ -37,3 +49,17 @@ def gameboard(gamemarks):
         elif board_num in range(7,10): gameboard = gameboard[:(265 + ((board_num - 7) * 8))] + board_mark + gameboard[(265 + ((board_num - 7) * 8))+1:]
 
     print(gameboard)
+
+# initial text part for Bulls & Cows
+welcomebc = """Welcome to Bulls & Cows
+========================================
+GAME RULES:
+I've generated a random 4 digit number
+for you. The digits are all different.
+If the matching digits are in their 
+right positions, they are "bulls", 
+if in different positions, they are "cows"
+You win when reveal secret number.
+========================================
+Let's play a Bulls & Cows game.
+If you want to exit press E"""
