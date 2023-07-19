@@ -20,6 +20,7 @@ line = "="*40
 while True:
     system("cls")
     print(source.welcome)
+    print(line)
     if wrong_choose:
         print("Wrong enter!")
         wrong_choose = False
@@ -104,13 +105,16 @@ while True:
         gamestatusbc = True
         players_number = ""
 
+        # prints greetings, rules, generates number, gets start time
         system("cls")
         print(source.welcomebc)
         guesed_number = logic.give_random_number()
         print(guesed_number)
         start_time_bc = time()
         error = ""
+        attempts = 0
 
+        # plays until player do not hit right number or press E
         while gamestatusbc:
             if error != "": print(error)
             print(line)
@@ -126,14 +130,12 @@ while True:
             if error != "": continue
             players_number = [int(num) for num in players_number]
             cows, bulls = logic.bacevaluation(guesed_number, players_number)
-            print(cows)
-            print(bulls)
             logic.bacverdict(cows, bulls)
-
-
-
-            
-
-        
-
+            attempts += 1
+            if bulls == 4: gamestatusbc = False
+        # gives feedback about game
+        logic.bacfeedback(attempts)
+        end_time = time()
+        logic.timeplay(start_time_bc, end_time, False)
+        print(line)
         input("Press enter to continue".center(40))
