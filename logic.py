@@ -77,6 +77,7 @@ def bacevaluation(guessed_number, players_number):
     cows = cows - bulls
     return(cows, bulls)
 
+# according to how many B & C gives right phrase
 def bacverdict(cows, bulls):
     if cows == 1:
         if bulls == 1: print("1 bull, 1 cow")
@@ -84,6 +85,16 @@ def bacverdict(cows, bulls):
     if bulls == 1 and cows != 1: print(f"1 bull, {cows} cows")
     if bulls == 4: print("Correct, you've guessed the right number.")
     if bulls != 1 and cows != 1 and bulls != 4: print(f"{bulls} bulls, {cows} cows")
+
+# gives feedback to player according to number of attempts
+def bacfeedback(attempts):
+    if attempts == 1: print("You are lucky. I took you only 1 attemp.")
+    else: print(f"I took you {attempts} attempts.",end=" ")
+    if attempts <= 4 and attempts > 1: print("That's amazing.")
+    if attempts <= 9 and attempts > 4: print("That's average.")
+    if attempts >9: print("That's not so good")
+                                              
+                                              
 
 
 
