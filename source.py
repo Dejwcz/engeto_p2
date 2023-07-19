@@ -50,7 +50,7 @@ def gameboard(gamemarks):
 
     print(gameboard)
 
-# initial text part for Bulls & Cows
+# initial text part for Bulls & Cows.
 welcomebc = """Welcome to Bulls & Cows
 ========================================
 GAME RULES:
